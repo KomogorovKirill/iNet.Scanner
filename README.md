@@ -1,6 +1,4 @@
-~~~~~~~~~~~~~~~~~~~~~~~~~
-  iNet.Scanner.py v.1.0
-~~~~~~~~~~~~~~~~~~~~~~~~~
+*
 
 His progect create on Python3.
 
