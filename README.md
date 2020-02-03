@@ -6,9 +6,9 @@ His progect create on Python3.
 
 Used side modules:
 
-1)'termcolor' for colorize notifications
+1.'termcolor' for colorize notifications
 
-2)'scapy' for working with channel and network layer protocols
+2.'scapy' for working with channel and network layer protocols
 
 After downloading the program, go to the directory with it and enter “chmod + x iNet.Scanner.py”, then run it “./iNet.Scanner.py”
 
