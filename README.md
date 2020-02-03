@@ -19,7 +19,7 @@ Examples:
 1) if you specify one number, only this port will be checked
 2) ports can be specified with a comma
 3) ports can be specified by specifying the range '<min port> - <max port>'
-4) 'All' displays all ports
+4) 'аll' displays all ports
 As a result of the check, only open ports are displayed.
 
 The program displays the result in the form of a table with the IP address, MAC address, host name of the device and open ports.
