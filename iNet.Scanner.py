@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#Created by Komogorov Kirill
 
 from sys import platform
 from subprocess import check_output
