@@ -24,3 +24,9 @@ As a result of the check, only open ports are displayed.
 
 The program displays the result in the form of a table with the IP address, MAC address, host name of the device and open ports.
 Below the table, your local IP address and host name are displayed.
+
+Installation commands for Linux:
+1) git clone https://github.com/KomogorovKirill/iNet.Scanner.git
+2) cd iNet.Scanner
+3) chmod +x iNet.Scanner.py
+4) ./iNet.Scanner.py
