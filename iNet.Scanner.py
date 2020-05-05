@@ -47,6 +47,7 @@ if (search(r'([0-9]{1,3}.){3}[0-9]{1,3}/[\d]{1,2}', Range)) == None:
 
 Range_ports = input(colored("Enter range ports: ", 'yellow')).lower() #input port range
 Port_list =[]
+check_ports = True #ports check at IP address
 
 if (search(r'([\d]+, )+[\d]+', Range_ports)) != None: #ports input validation
     ls = Range_ports.split(', ')
@@ -90,7 +91,7 @@ elif (search(r'[\d]+', Range_ports)) != None:
         print(colored("\nSuch port does't exist!", 'red'))
         exit()
 elif (Range_ports == 'not') or (Range_ports == 'no'): #ignore ports check
-    Port_list = 'no ports...'
+    check_ports = False
 elif Range_ports == 'all': #all ports (1-65535)
     Port_list = [i for i in range(1, 65536)]
 else:
@@ -109,8 +110,6 @@ def scan(ip): #receive function IP, host name and MAC adress
     return client_list
 
 def ports(host, list_ports): #open ports search function
-    if list_ports == 'no ports...':
-        return colored(list_ports, 'yellow')
     connection = socket.socket()
     port_list_post = []
     for port in range(0, len(list_ports)):
@@ -140,7 +139,11 @@ try:
     ip_mac_host = scan(Range)
 except PermissionError: #check availability root rights for 'linux'
     print(colored('\nTo continue need your root rights!', 'red'))
-    exit() 
+    exit()
+
+if len(ip_mac_host) == 0: #checking the range of IP addresses for their presence in a given network
+    print(colored("\nThis range of IP addresses doesn't exit on the networck!", 'red'))
+    exit()
 
 #appearance of the displayed information
 print(colored("_" * 85, 'green'))
@@ -151,6 +154,7 @@ else:
 print(colored("_" * 85, 'green'))
 for i in range(len(ip_mac_host)):
     print(colored(ip_mac_host[i]["ip"] + "\t|\t" + ip_mac_host[i]["mac"] + "\t|\t" + ip_mac_host[i]["host"][0], 'green'))
-    print(colored("Open ports: ", 'green') + ports(ip_mac_host[i]["ip"], Port_list))
+    if check_ports:
+        print(colored("Open ports: ", 'green') + ports(ip_mac_host[i]["ip"], Port_list))
     print(colored("_" * 85, 'green'))
 print(get_my_info())
