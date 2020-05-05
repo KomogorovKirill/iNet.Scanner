@@ -46,7 +46,7 @@ if (search(r'([0-9]{1,3}.){3}[0-9]{1,3}/[\d]{1,2}', Range)) == None:
     exit()
 
 Range_ports = input(colored("Enter range ports: ", 'yellow')).lower() #input port range
-Port_list =[]
+Port_list = []
 check_ports = True #ports check at IP address
 
 if (search(r'([\d]+, )+[\d]+', Range_ports)) != None: #ports input validation
