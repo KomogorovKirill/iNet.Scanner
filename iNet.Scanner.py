@@ -41,7 +41,7 @@ print(colored("|_|_| \_|\___|\__(_)____/ \___\__,_|_| |_|_| |_|\___|_|", 'green'
 print('\t' * 5 + ' ' * 7 + colored('version 1.0', 'red') + '\n')
 
 Range = input(colored("Enter the range of IP addresses: ", 'yellow')) #Enter and check range of IP addresses
-if (search(r'([0-9]{1,3}.){3}[0-9]{1,3}/[\d]{1,2}', Range)) == None:
+if (search(r'([0-9]{1,3}.){3}[0-9]{1,3}/[\d]{1,2}', Range)) is None:
     print(colored("You don't enter range of IP addresses!", 'red'))
     exit()
 
@@ -49,7 +49,7 @@ Range_ports = input(colored("Enter range ports: ", 'yellow')).lower() #input por
 Port_list = []
 check_ports = True #ports check at IP address
 
-if (search(r'([\d]+, )+[\d]+', Range_ports)) != None: #ports input validation
+if (search(r'([\d]+, )+[\d]+', Range_ports)) is not None: #ports input validation
     ls = Range_ports.split(', ')
     for i in ls:
         if int(ls[i]) >= 1 and int(ls[i]) <= 65535:
@@ -58,7 +58,7 @@ if (search(r'([\d]+, )+[\d]+', Range_ports)) != None: #ports input validation
             print(colored('\nPort ' + str(ls[i]) + ' incorrect', 'red'))
             del ls[i]
 
-elif (search(r'[\d]+ - [\d]+', Range_ports)) != None:
+elif (search(r'[\d]+ - [\d]+', Range_ports)) is not None:
     min_max = Range_ports.split(' - ')
     if (int(min_max[0]) >= 1) and (int(min_max[0]) <= 65535) and (int(min_max[1]) >= 1) and (int(min_max[1]) <= 65535):
         if min_max[0] < min_max[1]:
@@ -71,7 +71,7 @@ elif (search(r'[\d]+ - [\d]+', Range_ports)) != None:
         print(colored('\nPorts range was entered incorrectly!', 'red'))
         exit()
     Port_list = [i for i in range(int(min_port), int(max_port) + 1)]
-elif (search(r'[\d]+-[\d]+', Range_ports)) != None:
+elif (search(r'[\d]+-[\d]+', Range_ports)) is not None:
     min_max = Range_ports.split('-')
     if (int(min_max[0]) >= 1) and (int(min_max[0]) <= 65535) and (int(min_max[1]) >= 1) and (int(min_max[1]) <= 65535):
         if int(min_max[0]) < int(min_max[1]):
@@ -84,7 +84,7 @@ elif (search(r'[\d]+-[\d]+', Range_ports)) != None:
         print(colored('\nPorts range was entered incorrectly!', 'red'))
         exit()
     Port_list = [i for i in range(int(min_port), int(max_port) + 1)]
-elif (search(r'[\d]+', Range_ports)) != None:
+elif (search(r'[\d]+', Range_ports)) is not None:
     if (int(Range_ports) >= 1) and (int(Range_ports) <= 65535):
         Port_list = Range_ports
     else:
