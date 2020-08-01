@@ -38,7 +38,7 @@ print(colored("(_) \ | | ___| |_  / ___|  ___ __ _ _ __  _ __   ___ _ __", 'gree
 print(colored("| |  \| |/ _ \ __| \___ \ / __/ _` | '_ \| '_ \ / _ \ '__|", 'green'))
 print(colored("| | |\  |  __/ |_ _ ___) | (_| (_| | | | | | | |  __/ |", 'green'))
 print(colored("|_|_| \_|\___|\__(_)____/ \___\__,_|_| |_|_| |_|\___|_|", 'green'))
-print('\t' * 5 + ' ' * 7 + colored('version 1.0', 'red') + '\n')
+print('\t' * 5 + ' ' * 7 + colored('version 1.1', 'red') + '\n')
 
 Range = input(colored("Enter the range of IP addresses: ", 'yellow')) #Enter and check range of IP addresses
 if (search(r'([0-9]{1,3}.){3}[0-9]{1,3}/[\d]{1,2}', Range)) is None:
